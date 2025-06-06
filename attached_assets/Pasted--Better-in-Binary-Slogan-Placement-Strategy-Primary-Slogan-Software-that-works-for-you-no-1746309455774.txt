@@ -1,0 +1,79 @@
+# Better in Binary - Slogan Placement Strategy
+
+## Primary Slogan
+**"Software that works for you, not against you"**
+
+This primary slogan communicates your core value proposition and should appear in:
+
+- **Header/Navigation Bar**: As a subtle tagline next to your logo
+- **Homepage Hero Section**: As the main headline or prominent subheading
+- **Email Signatures**: At the bottom of all company emails
+- **Business Cards & Physical Materials**: Alongside your logo
+- **Social Media Profiles**: In your bio/about sections
+- **Footer**: As a consistent reminder throughout the site
+
+## Secondary Taglines
+
+### About Page
+**"Simplicity engineered"**
+
+Placement:
+- As the main headline on the About page
+- Visually emphasized with your brand colors
+- Supported by paragraphs explaining your engineering approach to creating simple solutions
+- Could be accompanied by a simple diagram or animation showing how you transform complexity into simplicity
+
+### Services/Solutions Page
+**"Solutions that serve, not complicate"**
+
+Placement:
+- As the section headline introducing your services
+- Repeated as subtle headers for each service category
+- Used as a framing device when explaining your approach to solution development
+- Could be reinforced with before/after examples of simplified systems
+
+### Portfolio/Case Studies Section
+**"We handle the tech, you handle the business"**
+
+Placement:
+- As the main headline introducing your case studies/portfolio
+- As a recurring theme in the summary of each case study
+- Highlighted in client testimonial sections
+- Used to frame the results/benefits sections of case studies
+
+### Contact/Get Started Page
+**"Clear solutions to complex problems"**
+
+Placement:
+- As the headline above your contact form
+- Reinforced in the thank you/confirmation message after form submission
+- Used in call-to-action buttons ("Get your clear solution today")
+- Included in the introductory text explaining your onboarding process
+
+## Additional Strategic Placements
+
+### Blog/Resources Section
+Consider using rotating taglines that align with specific content topics. For example:
+- For technical topics: "Simplicity engineered"
+- For business strategy topics: "We handle the tech, you handle the business"
+- For problem-solving articles: "Clear solutions to complex problems"
+
+### FAQ Section
+Frame your FAQs around your "Software that works for you, not against you" concept, perhaps with an introduction like:
+"Here are answers to common questions about how our software works for your business, never against it."
+
+### Client Onboarding Materials
+Use "Simplicity engineered" to frame your onboarding process, emphasizing how you've made even the implementation process simple and straightforward.
+
+### Pricing Page
+Use "Solutions that serve, not complicate" to introduce your transparent, straightforward pricing model.
+
+## Visual Implementation
+
+For maximum impact:
+- Use your brand typography (Space Grotesk Bold for headlines, Inter for body text)
+- Implement your color palette (Emerald #23CE6B for primary emphasis, Purpureus #A846A0 for secondary emphasis)
+- Consider subtle animations that reinforce the concept of simplicity (like binary 0s and 1s transforming into a clean solution)
+- Use consistent placement and styling of taglines across all pages to build recognition
+
+This multi-slogan approach creates a cohesive narrative throughout the user journey, reinforcing your value proposition at every touchpoint while keeping your messaging fresh and contextually relevant.

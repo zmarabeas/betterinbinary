@@ -1,0 +1,253 @@
+# Better in Binary Style Guide
+
+## Color Palette
+
+Our color palette represents simplicity and professionalism while maintaining a modern edge. The binary concept is reflected through our contrasting colors, with accents that add personality.
+
+### Primary Colors
+
+| Color | Name | Hex | RGB | Use |
+|-------|------|-----|-----|-----|
+| ![Emerald](https://via.placeholder.com/20/23CE6B/23CE6B) | Emerald | #23CE6B | rgb(35, 206, 107) | Primary action color, represents positive decisions |
+| ![Gunmetal](https://via.placeholder.com/20/272D2D/272D2D) | Gunmetal | #272D2D | rgb(39, 45, 45) | Text, headers, and strong elements |
+| ![Ghost White](https://via.placeholder.com/20/F6F8FF/F6F8FF) | Ghost White | #F6F8FF | rgb(246, 248, 255) | Background, negative space |
+
+### Accent Colors
+
+| Color | Name | Hex | RGB | Use |
+|-------|------|-----|-----|-----|
+| ![Purpureus](https://via.placeholder.com/20/A846A0/A846A0) | Purpureus | #A846A0 | rgb(168, 70, 160) | Secondary accent, call-to-action elements |
+| ![Davy's Gray](https://via.placeholder.com/20/50514F/50514F) | Davy's Gray | #50514F | rgb(80, 81, 79) | Tertiary elements, subtle backgrounds |
+
+## Color Usage Guidelines
+
+### Text Colors
+
+- **Primary text**: Gunmetal (#272D2D)
+- **Secondary text**: Davy's Gray (#50514F)
+- **Text on dark backgrounds**: Ghost White (#F6F8FF)
+- **Highlighted text**: Emerald (#23CE6B)
+
+### Background Colors
+
+- **Primary background**: Ghost White (#F6F8FF)
+- **Secondary background**: Davy's Gray (#50514F) at 10% opacity
+- **Dark sections**: Gunmetal (#272D2D)
+
+### Interactive Elements
+
+- **Primary buttons**: Emerald (#23CE6B)
+- **Secondary buttons**: Purpureus (#A846A0)
+- **Button text**: Ghost White (#F6F8FF) or Gunmetal (#272D2D) depending on contrast
+- **Hover states**: 10% lightened version of the button color
+- **Links**: Purpureus (#A846A0)
+- **Focus states**: Emerald (#23CE6B) with 2px outline
+
+### Color Combinations
+
+| Combination | Background | Text | Accent |
+|-------------|------------|------|--------|
+| Light Theme | Ghost White | Gunmetal | Emerald + Purpureus |
+| Dark Theme | Gunmetal | Ghost White | Emerald + Purpureus |
+| Call to Action | Emerald | Ghost White | N/A |
+| Secondary CTA | Purpureus | Ghost White | N/A |
+| Alert/Success | Emerald (15% opacity) | Gunmetal | Emerald |
+| Subtle | Ghost White | Davy's Gray | Purpureus |
+
+## Binary Animation Color Usage
+
+The central binary animation should primarily use:
+
+- Emerald (#23CE6B) for "1" elements
+- Purpureus (#A846A0) for "0" elements
+- Ghost White (#F6F8FF) for background
+- Gunmetal (#272D2D) for connecting elements
+
+## Accessibility Considerations
+
+- Ensure sufficient contrast between text and background colors
+- Emerald (#23CE6B) on Ghost White (#F6F8FF) meets WCAG AA standard for large text only
+- Gunmetal (#272D2D) on Ghost White (#F6F8FF) meets WCAG AAA standards
+- Ghost White (#F6F8FF) on Gunmetal (#272D2D) meets WCAG AAA standards
+- Ghost White (#F6F8FF) on Purpureus (#A846A0) meets WCAG AA standards
+
+## Implementation in CSS
+
+```css
+:root {
+  /* Main palette */
+  --emerald: #23ce6b;
+  --gunmetal: #272d2d;
+  --ghost-white: #f6f8ff;
+  --purpureus: #a846a0;
+  --davys-gray: #50514f;
+  
+  /* Functional color assignments */
+  --primary: var(--emerald);
+  --secondary: var(--purpureus);
+  --background: var(--ghost-white);
+  --text-primary: var(--gunmetal);
+  --text-secondary: var(--davys-gray);
+  --text-on-dark: var(--ghost-white);
+  --accent: var(--purpureus);
+  --subtle: var(--davys-gray);
+}
+
+/* Base styles */
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p, ul, ol {
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent) 90%, white);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-on-dark);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--primary) 90%, white);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-on-dark);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--secondary) 90%, white);
+}
+
+/* Dark sections */
+.dark-section {
+  background-color: var(--gunmetal);
+  color: var(--text-on-dark);
+  padding: 3rem 0;
+}
+
+.dark-section h2 {
+  color: var(--text-on-dark);
+}
+
+/* Subtle backgrounds */
+.subtle-bg {
+  background-color: color-mix(in srgb, var(--subtle) 10%, transparent);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+```
+
+## Implementation in Tailwind CSS
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        emerald: '#23ce6b',
+        gunmetal: '#272d2d',
+        'ghost-white': '#f6f8ff',
+        purpureus: '#a846a0',
+        'davys-gray': '#50514f',
+        
+        primary: '#23ce6b',
+        secondary: '#a846a0',
+        background: '#f6f8ff',
+        'text-primary': '#272d2d',
+        'text-secondary': '#50514f',
+        'text-on-dark': '#f6f8ff',
+      },
+    },
+  },
+};
+```
+
+## Typography
+
+Our typography system creates a technical, modern feel that emphasizes the binary concept while maintaining excellent readability:
+
+### Font Pairing
+- **Heading Font**: Space Grotesk (Bold)
+- **Body Font**: Inter (Regular)
+- **Fallback Stack**: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif
+
+Space Grotesk's geometric construction and distinctive character shapes represent the technical precision of binary systems, while Inter provides exceptional readability for longer text.
+
+### Heading Sizes and Weights
+- H1: 2.5rem (40px), Space Grotesk Bold
+- H2: 2rem (32px), Space Grotesk Bold
+- H3: 1.5rem (24px), Space Grotesk Bold
+- H4: 1.25rem (20px), Space Grotesk Medium
+- H5: 1rem (16px), Space Grotesk Medium
+- H6: 0.875rem (14px), Space Grotesk Medium
+
+### Body Text
+- Body: 1rem (16px), Inter Regular
+- Body Strong: 1rem (16px), Inter Semi-Bold
+- Small: 0.875rem (14px), Inter Regular
+- XSmall: 0.75rem (12px), Inter Regular
+
+### Line Heights
+- Headings: 1.2
+- Body text: 1.5
+- Buttons and short text: 1.25
+
+## Logo Treatments
+
+The Better in Binary logo should use the following colors:
+- Primary version: Gunmetal (#272D2D) with Emerald (#23CE6B) accents
+- Reversed version: Ghost White (#F6F8FF) with Emerald (#23CE6B) accents
+- Use logo against Ghost White (#F6F8FF) or Gunmetal (#272D2D) backgrounds for best contrast
+
+## Gradient Usage
+
+Gradients can be used sparingly for visual interest:
+
+### Primary Gradient
+```css
+background: linear-gradient(135deg, var(--emerald), var(--purpureus));
+```
+
+### Subtle Gradient
+```css
+background: linear-gradient(135deg, var(--ghost-white), color-mix(in srgb, var(--ghost-white) 95%, var(--emerald)));
+```
+
+## Icon Style
+
+Icons should follow these guidelines:
+- Line weight: 1.5px - 2px
+- Corner radius: 2px
+- Primary color: Gunmetal (#272D2D)
+- Accent color: Emerald (#23CE6B)
+- Interactive icons: Purpureus (#A846A0)

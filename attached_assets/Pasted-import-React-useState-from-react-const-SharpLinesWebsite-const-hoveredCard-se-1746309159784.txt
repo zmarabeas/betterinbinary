@@ -1,0 +1,412 @@
+import React, { useState } from 'react';
+
+const SharpLinesWebsite = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  return (
+    <div className="min-h-screen bg-ghost-white font-body">
+      {/* Custom styling for our colors */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+          :root {
+            --emerald: #23ce6b;
+            --gunmetal: #272d2d;
+            --ghost-white: #f6f8ff;
+            --purpureus: #a846a0;
+            --davys-gray: #50514f;
+          }
+
+          .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+          }
+
+          .font-body {
+            font-family: 'Inter', sans-serif;
+          }
+
+          .bg-emerald { background-color: var(--emerald); }
+          .bg-gunmetal { background-color: var(--gunmetal); }
+          .bg-ghost-white { background-color: var(--ghost-white); }
+          .bg-purpureus { background-color: var(--purpureus); }
+          .bg-davys-gray { background-color: var(--davys-gray); }
+
+          .text-emerald { color: var(--emerald); }
+          .text-gunmetal { color: var(--gunmetal); }
+          .text-ghost-white { color: var(--ghost-white); }
+          .text-purpureus { color: var(--purpureus); }
+          .text-davys-gray { color: var(--davys-gray); }
+
+          .diagonal-line {
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: var(--emerald);
+            transform: rotate(-45deg);
+            top: 50%;
+            left: 50%;
+            margin-left: -1px;
+            margin-top: -25px;
+          }
+
+          .corner-accent {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-left: 2px solid var(--emerald);
+            border-top: 2px solid var(--emerald);
+            top: 8px;
+            left: 8px;
+          }
+
+          .card-clip {
+            clip-path: polygon(24px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 24px);
+          }
+
+          .hexagon-icon {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+          }
+
+          .project-clip {
+            clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+          }
+        `}
+      </style>
+      
+      {/* Header with Sharp Angles */}
+      <header className="bg-gunmetal text-ghost-white p-4 relative">
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-ghost-white opacity-20"></div>
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-ghost-white opacity-20"></div>
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="font-heading text-2xl text-emerald relative">
+              Better in Binary
+              <div className="absolute -top-2 -right-2 w-4 h-4 border-2 border-emerald transform rotate-45"></div>
+            </div>
+            <div className="hidden md:block text-sm border-l border-ghost-white pl-3 ml-3 text-ghost-white">Software that works for you, not against you</div>
+          </div>
+          <nav className="hidden md:flex gap-6">
+            <a href="#" className="text-ghost-white hover:text-emerald transition-colors relative group">
+              Home
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald group-hover:w-full transition-all duration-300"></div>
+            </a>
+            <a href="#" className="text-ghost-white hover:text-emerald transition-colors relative group">
+              About
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald group-hover:w-full transition-all duration-300"></div>
+            </a>
+            <a href="#" className="text-ghost-white hover:text-emerald transition-colors relative group">
+              Services
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald group-hover:w-full transition-all duration-300"></div>
+            </a>
+            <a href="#" className="text-ghost-white hover:text-emerald transition-colors relative group">
+              Portfolio
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald group-hover:w-full transition-all duration-300"></div>
+            </a>
+            <a href="#" className="text-ghost-white hover:text-emerald transition-colors relative group">
+              Contact
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald group-hover:w-full transition-all duration-300"></div>
+            </a>
+          </nav>
+          <button className="md:hidden">
+            <svg className="w-6 h-6 text-ghost-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      
+      {/* Hero Section with Angular Design */}
+      <section className="bg-ghost-white py-16 md:py-24 relative">
+        <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-gunmetal opacity-10"></div>
+        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-gunmetal opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="md:w-1/2 mb-10 md:mb-0">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-gunmetal mb-4 relative">
+                Software that works <span className="text-emerald">for you</span>, <br className="hidden md:block" />not against you
+              </h1>
+              <p className="text-davys-gray text-lg mb-8">
+                Better in Binary creates simple, powerful software solutions for small businesses that solve problems without creating new ones.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="bg-emerald text-ghost-white font-medium py-3 px-6 relative overflow-hidden group">
+                  <span className="relative z-10">Get Started</span>
+                  <div className="absolute inset-0 bg-purpureus transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                </button>
+                <button className="border-2 border-gunmetal text-gunmetal font-medium py-3 px-6 relative overflow-hidden group">
+                  <span className="relative z-10">See Our Work</span>
+                  <div className="absolute inset-0 bg-gunmetal transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  <span className="absolute inset-0 text-ghost-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">See Our Work</span>
+                </button>
+              </div>
+            </div>
+            <div className="md:w-1/2 flex justify-center">
+              <div className="relative w-full max-w-md">
+                <div className="h-64 bg-ghost-white border-2 border-gunmetal border-opacity-10 card-clip relative overflow-hidden">
+                  <div className="corner-accent"></div>
+                  <div className="absolute bottom-0 left-0 p-4">
+                    <div className="text-2xl font-heading text-purpureus mb-2">Binary Animation</div>
+                    <div className="text-davys-gray text-sm">Interactive animation would appear here</div>
+                  </div>
+                  <div className="diagonal-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* About Section with Angular Design */}
+      <section className="bg-white py-16 relative">
+        <div className="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-emerald opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-4xl text-gunmetal mb-2">About Us</h2>
+            <div className="font-heading text-2xl text-emerald relative inline-block">
+              Simplicity engineered
+              <div className="absolute -bottom-2 left-0 w-16 h-0.5 bg-emerald"></div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row gap-10">
+            <div className="md:w-1/2">
+              <p className="text-davys-gray mb-4">
+                At Better in Binary, we believe that software should solve problems, not create them. Our approach combines technical expertise with a passion for simplicity.
+              </p>
+              <p className="text-davys-gray mb-4">
+                We engineer away the unnecessary complexity that plagues most business software, leaving you with clean, efficient solutions that just work.
+              </p>
+              <p className="text-davys-gray">
+                Our clients choose us because they want technology that empowers their business without requiring constant maintenance or a computer science degree to operate.
+              </p>
+            </div>
+            <div className="md:w-1/2 bg-ghost-white p-6 card-clip relative">
+              <div className="corner-accent border-purpureus"></div>
+              <div className="font-heading text-xl text-purpureus mb-4">Our Approach</div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="bg-emerald text-ghost-white w-6 h-6 flex items-center justify-center hexagon-icon font-heading">1</div>
+                  <div>
+                    <div className="font-medium text-gunmetal">Understand your business</div>
+                    <div className="text-sm text-davys-gray">We take the time to truly understand your operations and challenges</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-emerald text-ghost-white w-6 h-6 flex items-center justify-center hexagon-icon font-heading">2</div>
+                  <div>
+                    <div className="font-medium text-gunmetal">Identify the core needs</div>
+                    <div className="text-sm text-davys-gray">We strip away unnecessary complexity to focus on what truly matters</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-emerald text-ghost-white w-6 h-6 flex items-center justify-center hexagon-icon font-heading">3</div>
+                  <div>
+                    <div className="font-medium text-gunmetal">Engineer simple solutions</div>
+                    <div className="text-sm text-davys-gray">We build software that's powerful yet intuitive to use</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Services Section with Angular Cards */}
+      <section className="bg-ghost-white py-16 relative">
+        <div className="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-purpureus opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-4xl text-gunmetal mb-2">Our Services</h2>
+            <div className="font-heading text-2xl text-purpureus">Solutions that serve, not complicate</div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div 
+              className="bg-white p-6 card-clip relative group"
+              onMouseEnter={() => setHoveredCard(1)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="corner-accent"></div>
+              <div className="w-12 h-12 bg-emerald bg-opacity-10 hexagon-icon flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h3 className="font-heading text-xl text-gunmetal mb-2">Custom Software Development</h3>
+              <p className="text-davys-gray">Tailored software solutions designed specifically for your business needs and workflows.</p>
+              {hoveredCard === 1 && (
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-emerald transform origin-left transition-transform duration-300"></div>
+              )}
+            </div>
+            <div 
+              className="bg-white p-6 card-clip relative group"
+              onMouseEnter={() => setHoveredCard(2)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="corner-accent border-purpureus"></div>
+              <div className="w-12 h-12 bg-purpureus bg-opacity-10 hexagon-icon flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-purpureus" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+              </div>
+              <h3 className="font-heading text-xl text-gunmetal mb-2">System Integration</h3>
+              <p className="text-davys-gray">Connect your existing tools and applications for seamless data flow and operation.</p>
+              {hoveredCard === 2 && (
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-purpureus transform origin-left transition-transform duration-300"></div>
+              )}
+            </div>
+            <div 
+              className="bg-white p-6 card-clip relative group"
+              onMouseEnter={() => setHoveredCard(3)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="corner-accent"></div>
+              <div className="w-12 h-12 bg-emerald bg-opacity-10 hexagon-icon flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <h3 className="font-heading text-xl text-gunmetal mb-2">Process Automation</h3>
+              <p className="text-davys-gray">Automate repetitive tasks and streamline workflows to save time and reduce errors.</p>
+              {hoveredCard === 3 && (
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-emerald transform origin-left transition-transform duration-300"></div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Portfolio Section with Angular Design */}
+      <section className="bg-white py-16 relative">
+        <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-emerald opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-4xl text-gunmetal mb-2">Our Work</h2>
+            <div className="font-heading text-2xl text-emerald">We handle the tech, you handle the business</div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-ghost-white project-clip overflow-hidden shadow-sm">
+              <div className="h-48 bg-gunmetal bg-opacity-10 flex items-center justify-center">
+                <div className="text-gunmetal font-heading text-6xl opacity-50">01</div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading text-xl text-gunmetal mb-2">Inventory Management System</h3>
+                <p className="text-davys-gray text-sm mb-4">A streamlined inventory system for a local retail chain that simplified operations and reduced errors by 75%.</p>
+                <div className="flex items-center text-purpureus font-medium text-sm group cursor-pointer">
+                  View Case Study
+                  <div className="w-4 ml-2 h-4 border-r-2 border-t-2 border-purpureus transform rotate-45 group-hover:translate-x-1 transition-transform"></div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-ghost-white project-clip overflow-hidden shadow-sm">
+              <div className="h-48 bg-gunmetal bg-opacity-10 flex items-center justify-center">
+                <div className="text-gunmetal font-heading text-6xl opacity-50">02</div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading text-xl text-gunmetal mb-2">Client Portal Solution</h3>
+                <p className="text-davys-gray text-sm mb-4">A secure, intuitive client portal for a consulting firm that improved client communication and document sharing.</p>
+                <div className="flex items-center text-purpureus font-medium text-sm group cursor-pointer">
+                  View Case Study
+                  <div className="w-4 ml-2 h-4 border-r-2 border-t-2 border-purpureus transform rotate-45 group-hover:translate-x-1 transition-transform"></div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-ghost-white project-clip overflow-hidden shadow-sm">
+              <div className="h-48 bg-gunmetal bg-opacity-10 flex items-center justify-center">
+                <div className="text-gunmetal font-heading text-6xl opacity-50">03</div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading text-xl text-gunmetal mb-2">Automated Billing System</h3>
+                <p className="text-davys-gray text-sm mb-4">A simplified billing system for a service provider that automated invoicing and reduced accounting time by 65%.</p>
+                <div className="flex items-center text-purpureus font-medium text-sm group cursor-pointer">
+                  View Case Study
+                  <div className="w-4 ml-2 h-4 border-r-2 border-t-2 border-purpureus transform rotate-45 group-hover:translate-x-1 transition-transform"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact Section with Angular Design */}
+      <section className="bg-ghost-white py-16 relative">
+        <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-gunmetal opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-4xl text-gunmetal mb-2">Get in Touch</h2>
+            <div className="font-heading text-2xl text-purpureus">Clear solutions to complex problems</div>
+          </div>
+          <div className="bg-white p-8 card-clip shadow-sm max-w-2xl mx-auto relative">
+            <div className="corner-accent"></div>
+            <div className="space-y-6">
+              <div>
+                <label className="block text-gunmetal font-medium mb-2">Name</label>
+                <input className="w-full border-b-2 border-davys-gray border-opacity-20 bg-transparent py-2 focus:border-emerald focus:outline-none transition-colors" type="text" placeholder="Your name" />
+              </div>
+              <div>
+                <label className="block text-gunmetal font-medium mb-2">Email</label>
+                <input className="w-full border-b-2 border-davys-gray border-opacity-20 bg-transparent py-2 focus:border-emerald focus:outline-none transition-colors" type="email" placeholder="you@company.com" />
+              </div>
+              <div>
+                <label className="block text-gunmetal font-medium mb-2">Message</label>
+                <textarea className="w-full border-b-2 border-davys-gray border-opacity-20 bg-transparent py-2 focus:border-emerald focus:outline-none transition-colors h-32" placeholder="Tell us about your project"></textarea>
+              </div>
+              <button className="bg-emerald text-ghost-white font-medium py-3 px-6 w-full relative overflow-hidden group">
+                <span className="relative z-10">Send Message</span>
+                <div className="absolute inset-0 bg-purpureus transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer with Angular Design */}
+      <footer className="bg-gunmetal text-ghost-white py-12 relative">
+        <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-ghost-white opacity-10"></div>
+        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-ghost-white opacity-10"></div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between mb-8 gap-8">
+            <div className="mb-8 md:mb-0">
+              <div className="font-heading text-2xl text-emerald mb-2 relative inline-block">
+                Better in Binary
+                <div className="absolute -bottom-1 left-0 w-16 h-0.5 bg-emerald"></div>
+              </div>
+              <div className="text-ghost-white opacity-80 max-w-xs">Software that works for you, not against you</div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div>
+                <div className="font-heading text-lg text-ghost-white mb-4">Company</div>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">About</a></li>
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">Services</a></li>
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">Portfolio</a></li>
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">Contact</a></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-heading text-lg text-ghost-white mb-4">Services</div>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">Custom Software</a></li>
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">System Integration</a></li>
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">Process Automation</a></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-heading text-lg text-ghost-white mb-4">Contact</div>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">hello@betterinbinary.com</a></li>
+                  <li><a href="#" className="text-ghost-white opacity-80 hover:opacity-100 hover:text-emerald transition-colors">(555) 123-4567</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-ghost-white border-opacity-20 pt-8 text-center">
+            <div className="text-ghost-white opacity-60 text-sm">&copy; 2025 Better in Binary. All rights reserved.</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default SharpLinesWebsite;
