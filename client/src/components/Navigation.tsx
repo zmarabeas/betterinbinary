@@ -12,24 +12,25 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="border-b border-gray-200">
+    <nav className="border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-50 transition-all">
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <Link href="/">
-            <span className="text-lg font-medium transition-all hover:opacity-70">
+            <span className="text-lg font-medium transition-all duration-300 hover:opacity-70 hover:scale-105">
               Better in Binary
             </span>
           </Link>
           
           <div className="flex space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Link key={item.name} href={item.href}>
                 <span
-                  className={`text-sm transition-all hover:opacity-70 ${
+                  className={`text-sm transition-all duration-300 hover:opacity-70 hover:scale-105 ${
                     location === item.href
                       ? "font-medium"
                       : "text-gray-600"
                   }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.name}
                 </span>

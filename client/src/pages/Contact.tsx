@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import AnimatedSection from "@/components/AnimatedSection";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export default function Contact() {
+  useScrollToTop();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,38 +44,40 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen">
-      <section className="py-24">
+    <div className="min-h-screen page-transition">
+      <AnimatedSection className="py-24">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-5xl font-medium mb-16">Get in Touch</h1>
           
           <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <p className="text-xl text-gray-600 mb-8">
-                Ready to simplify your tech? Let's discuss how we can transform your complex challenges into elegant solutions.
-              </p>
-              
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Email</h3>
-                  <p className="text-gray-600">hello@betterinbinary.com</p>
-                </div>
+            <AnimatedSection delay={100}>
+              <div>
+                <p className="text-xl text-gray-600 mb-8">
+                  Ready to simplify your tech? Let's discuss how we can transform your complex challenges into elegant solutions.
+                </p>
                 
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Response Time</h3>
-                  <p className="text-gray-600">We typically respond within 24 hours</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Project Timeline</h3>
-                  <p className="text-gray-600">Most projects start within 2-4 weeks</p>
+                <div className="space-y-6">
+                  <div className="fade-in visible">
+                    <h3 className="text-lg font-medium mb-2">Email</h3>
+                    <p className="text-gray-600">hello@betterinbinary.com</p>
+                  </div>
+                  
+                  <div className="fade-in visible fade-in-delay-1">
+                    <h3 className="text-lg font-medium mb-2">Response Time</h3>
+                    <p className="text-gray-600">We typically respond within 24 hours</p>
+                  </div>
+                  
+                  <div className="fade-in visible fade-in-delay-2">
+                    <h3 className="text-lg font-medium mb-2">Project Timeline</h3>
+                    <p className="text-gray-600">Most projects start within 2-4 weeks</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
             
-            <div>
+            <AnimatedSection delay={200}>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
+                <div className="fade-in visible">
                   <Label htmlFor="name">Name *</Label>
                   <Input
                     id="name"
@@ -81,11 +86,11 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="mt-2"
+                    className="mt-2 transition-all duration-300 focus:scale-105"
                   />
                 </div>
                 
-                <div>
+                <div className="fade-in visible fade-in-delay-1">
                   <Label htmlFor="email">Email *</Label>
                   <Input
                     id="email"
@@ -94,11 +99,11 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-2"
+                    className="mt-2 transition-all duration-300 focus:scale-105"
                   />
                 </div>
                 
-                <div>
+                <div className="fade-in visible fade-in-delay-2">
                   <Label htmlFor="company">Company</Label>
                   <Input
                     id="company"
@@ -106,18 +111,18 @@ export default function Contact() {
                     type="text"
                     value={formData.company}
                     onChange={handleChange}
-                    className="mt-2"
+                    className="mt-2 transition-all duration-300 focus:scale-105"
                   />
                 </div>
                 
-                <div>
+                <div className="fade-in visible fade-in-delay-3">
                   <Label htmlFor="service">Service Interest</Label>
                   <select
                     id="service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="mt-2 w-full px-3 py-2 border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-black"
+                    className="mt-2 w-full px-3 py-2 border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 focus:scale-105"
                   >
                     <option value="">Select a service</option>
                     <option value="web-development">Web Development</option>
@@ -127,7 +132,7 @@ export default function Contact() {
                   </select>
                 </div>
                 
-                <div>
+                <div className="fade-in visible fade-in-delay-4">
                   <Label htmlFor="message">Message *</Label>
                   <Textarea
                     id="message"
@@ -135,23 +140,25 @@ export default function Contact() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="mt-2 min-h-[120px]"
+                    className="mt-2 min-h-[120px] transition-all duration-300 focus:scale-105"
                     placeholder="Tell us about your project..."
                   />
                 </div>
                 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-black text-white hover:opacity-80"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
+                <div className="fade-in visible fade-in-delay-4">
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-black text-white hover:opacity-80 transition-all duration-300 hover:-translate-y-1 button-like"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+                </div>
               </form>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 }
