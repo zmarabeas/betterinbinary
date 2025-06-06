@@ -1,5 +1,7 @@
 # Better in Binary
 
+v0.0.1
+
 A minimalist business website for Better in Binary, showcasing software development services with clean design and modern typography.
 
 ## Features
